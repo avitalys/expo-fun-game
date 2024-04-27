@@ -1,39 +1,36 @@
 import { FontAwesome } from '@expo/vector-icons';
 import { StyleSheet, View, Pressable, Text } from 'react-native';
 
-export default function Button({ label, theme, onPress }) {
-    if (theme === "primary") {
-      return (
-        <View style={[styles.buttonContainer, { borderWidth: 4, borderColor: "#ffd33d", borderRadius: 18 }]}>
+export default function Button({ label, theme, onPress, iconName }) {
+
+    const isPrimary = theme === "primary";
+    const isSecondary = theme === "secondary";
+
+    return (
+        <View style={[styles.buttonContainer, (isPrimary || isSecondary)&& { borderWidth: 2, borderColor: "#ffd33d", borderRadius: 12 }]}>
           <Pressable
-            style={[styles.button, { backgroundColor: "#fff" }]}
+            style={[styles.button, isPrimary && { backgroundColor: "#fff" }]}
             onPress={onPress}
           >
-            <FontAwesome 
-              name="user" size={24} color="black" style={styles.buttonIcon}
-            />
-            <Text style={[styles.buttonLabel, { color: "#25292e" }]}>{label}</Text>
+            {iconName &&
+              <FontAwesome 
+                name={iconName} size={24} color={isPrimary ? "black" : "#fff"} style={styles.buttonIcon}
+              />
+            }
+            <Text style={[styles.buttonLabel, isPrimary && { color: "#25292e" }]}>{label}</Text>
           </Pressable>
         </View>
       );
-    }
-  
-    return (
-      <View style={styles.buttonContainer}>
-          <Pressable style={styles.button} onPress={onPress}>
-            <Text style={styles.buttonLabel}>{label}</Text>
-          </Pressable>
-        </View>
-    );
   }
 
 const styles = StyleSheet.create({
   buttonContainer: {
     width: 320,
-    height: 68,
+    height: 52,
     marginHorizontal: 20,
+    marginVertical: 4, 
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     padding: 3,
   },
   button: {

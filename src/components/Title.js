@@ -10,6 +10,6 @@ const styles = StyleSheet.create({
   title: {
     color: '#fff',
     fontSize: 20,
-    padding: 14,
+    padding: 8,
   },
 });

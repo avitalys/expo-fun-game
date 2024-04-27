@@ -14,7 +14,8 @@ export default function () {
       </View>
       <View style={styles.footerContainer}>
         <Title text={"Welcome to FunGame"}/>
-        <Button label="Login" theme="primary"/>
+        <Button label="Login" theme="primary" iconName="user"/>
+        <Button label="Sign Up" theme="secondary" iconName="user-plus"/>
         <Button label="Show me the demo" />
       </View>
     </>
@@ -24,7 +25,7 @@ export default function () {
 const styles = StyleSheet.create({
   imageContainer: {
     flex: 2,
-    paddingTop: 52,
+    paddingTop: 46,
   },
   footerContainer: {
     flex: 1,
