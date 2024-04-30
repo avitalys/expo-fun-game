@@ -1,0 +1,2 @@
+This project is a game app built using Expo, [React Native Game Engine](https://github.com/bberak/react-native-game-engine), and [Matter.js](https://github.com/liabru/matter-js/tree/master). 
+It combines the power of Expo for rapid development, React Native Game Engine for efficient game rendering, and Matter.js for realistic physics simulations. The purpose is to explore the capabilities of Expo and React Native for game development, aiming to create immersive gameplay experience where players can experience dynamic interactions, captivating challenges, and engaging visuals
