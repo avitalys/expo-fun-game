@@ -8,7 +8,7 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style="auto" />
       {/* <EntryScreen/> */}
-      <GameScreen/>
+      <GameScreen />
     </View>
   );
 }

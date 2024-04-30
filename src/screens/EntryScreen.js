@@ -13,9 +13,9 @@ export default function () {
         <ImageViewer placeholderImageSource={PlaceholderImage} />
       </View>
       <View style={styles.footerContainer}>
-        <Title text={"Welcome to FunGame"}/>
-        <Button label="Login" theme="primary" iconName="user"/>
-        <Button label="Sign Up" theme="secondary" iconName="user-plus"/>
+        <Title text={'Welcome to FunGame'} />
+        <Button label="Login" theme="primary" iconName="user" />
+        <Button label="Sign Up" theme="secondary" iconName="user-plus" />
         <Button label="Show me the demo" />
       </View>
     </>
@@ -32,4 +32,3 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-
