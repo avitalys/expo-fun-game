@@ -1,12 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import EntryScreen from './src/screens/EntryScreen';
+import GameScreen from './src/screens/GameScreen';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <EntryScreen/>
+      {/* <EntryScreen/> */}
+      <GameScreen/>
     </View>
   );
 }
