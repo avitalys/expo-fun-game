@@ -7,6 +7,7 @@ import Physics from '../physics';
 
 export default function () {
   const [running, setRunning] = useState(false);
+  const [gameEngineRef, setGameEngineRef] = useState(null);
 
   useEffect(() => {
     setRunning(true);
@@ -15,10 +16,23 @@ export default function () {
   return (
     <>
       <GameEngine
+        rer={(ref) => {
+          setGameEngineRef(ref);
+        }}
         systems={[Physics]}
         entities={entities()}
         running={running}
         style={styles.gameContainer}
+        onEvent={(e) => {
+          switch (e.type) {
+            case 'game_over':
+              setRunning(false);
+              gameEngineRef?.stop();
+
+            default:
+              break;
+          }
+        }}
       ></GameEngine>
       <StatusBar style="auto" hidden={true} />
     </>

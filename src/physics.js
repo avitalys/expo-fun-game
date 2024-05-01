@@ -30,6 +30,10 @@ const Physics = (entities, { touches, time, dispatch }) => {
     });
   }
 
+  Matter.Events.on(engine, 'collisionStart', (event) => {
+    dispatch({ type: 'game_over' });
+  });
+
   return entities;
 };
 
