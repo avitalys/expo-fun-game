@@ -1,14 +1,14 @@
 import { Dimensions } from 'react-native';
 
-const windowHeight = Dimensions.get('window').height;
-const windowWidth = Dimensions.get('window').width;
+export const windowHeight = Dimensions.get('window').height;
+export const windowWidth = Dimensions.get('window').width;
 
 export const getRandom = (min, max) => {
-  return Math.floor(Math.random() + (max - min + 1) + min);
+  return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
 export const getPipeSizePosPair = (addToPosX = 0) => {
-  let yPosTop = -getRandom(300, windowHeight - 100);
+  let yPosTop = -getRandom(200, windowHeight - 100);
 
   const pipeTop = {
     pos: { x: windowWidth + addToPosX, y: yPosTop },
