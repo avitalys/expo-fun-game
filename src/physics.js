@@ -13,9 +13,15 @@ const Physics = (entities, { touches, time, dispatch }) => {
   Matter.Engine.update(engine, time.delta);
 
   for (let index = 1; index <= 2; index++) {
+    if (entities[`ObstacleTop${index}`].body.bounds.max.x <= 50 && !entities[`ObstacleTop${index}`].point) {
+      entities[`ObstacleTop${index}`].point = true;
+      dispatch({ type: 'point_scored' });
+    }
+
     if (entities[`ObstacleTop${index}`].body.bounds.max.x < 0) {
       const newPipeSizePos = getPipeSizePosPair(windowWidth * 0.9);
 
+      entities[`ObstacleTop${index}`].point = false;
       Matter.Body.setPosition(entities[`ObstacleTop${index}`].body, newPipeSizePos.pipeTop.pos);
       Matter.Body.setPosition(entities[`ObstacleBottom${index}`].body, newPipeSizePos.pipeBottom.pos);
     }
