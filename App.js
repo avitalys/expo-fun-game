@@ -5,7 +5,7 @@ import GameScreen from './src/screens/GameScreen';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <View style={styles.container} scrollEnabled={false}>
       <StatusBar style="auto" />
       {/* <EntryScreen/> */}
       <GameScreen />
