@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, Pressable, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { GameEngine } from 'react-native-game-engine';
 import entities from '../entities';
@@ -17,7 +17,7 @@ export default function () {
   return (
     <>
       <GameEngine
-        rer={(ref) => {
+        ref={(ref) => {
           setGameEngineRef(ref);
         }}
         systems={[Physics]}
@@ -27,19 +27,36 @@ export default function () {
         onEvent={(e) => {
           switch (e.type) {
             case 'game_over':
-              setCurrentScore(0);
               setRunning(false);
-              gameEngineRef?.stop();
+              gameEngineRef.stop();
+              break;
             case 'point_scored':
               setCurrentScore(currentScore + 1);
+              break;
             default:
               break;
           }
         }}
-      ></GameEngine>
+      >
+        <StatusBar style="auto" hidden={true} />
+      </GameEngine>
 
       <Text style={styles.score}>{currentScore}</Text>
-      <StatusBar style="auto" hidden={true} />
+
+      {!running ? (
+        <View style={styles.newGameView}>
+          <Pressable
+            style={styles.newGameButton}
+            onPress={() => {
+              setCurrentScore(0);
+              setRunning(true);
+              gameEngineRef?.swap(entities());
+            }}
+          >
+            <Text style={styles.newGameText}>New Game</Text>
+          </Pressable>
+        </View>
+      ) : null}
     </>
   );
 }
@@ -61,5 +78,21 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
     margin: 18,
+  },
+  newGameView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  newGameButton: {
+    backgroundColor: 'black',
+    paddingVertical: 20,
+    paddingHorizontal: 30,
+    borderRadius: 12,
+  },
+  newGameText: {
+    fontSize: 30,
+    color: 'white',
+    fontStyle: 'bold',
   },
 });

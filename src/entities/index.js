@@ -13,7 +13,7 @@ export default (restart) => {
 
   let world = engine.world;
 
-  world.gravity.y = 0.9;
+  world.gravity.y = 0.7;
 
   const PipePosSize1 = getPipeSizePosPair();
   const PipePosSize2 = getPipeSizePosPair(windowWidth * 0.9);
