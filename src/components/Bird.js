@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Matter from 'matter-js';
 import { View } from 'react-native';
+import LottieView from 'lottie-react-native';
 
 const Bird = (props) => {
   const widthBody = props.body.bounds.max.x - props.body.bounds.min.x;
@@ -9,32 +10,26 @@ const Bird = (props) => {
   const xBody = props.body.position.x - widthBody / 2;
   const yBody = props.body.position.y - heightBody / 2;
 
-  const color = props.color;
+  //const color = props.color;
+  const animation = useRef(null);
 
   return (
     <View
       style={{
-        borderWidth: 2,
-        borderColor: color,
-        borderStyle: 'solid',
+        width: widthBody,
+        height: heightBody,
         position: 'absolute',
         left: xBody,
         top: yBody,
-        width: widthBody,
-        height: heightBody,
       }}
-    />
+    >
+      <LottieView autoPlay loop ref={animation} source={require('../../assets/lottie/small-bird.json')} />
+    </View>
   );
 };
 
 export default (world, color, pos, size) => {
-  const initialBird = Matter.Bodies.rectangle(
-    pos.x,
-    pos.y,
-    size.width,
-    size.height,
-    { label: 'Bird' },
-  );
+  const initialBird = Matter.Bodies.rectangle(pos.x, pos.y, size.width, size.height, { label: 'Bird' });
 
   Matter.World.add(world, initialBird);
 

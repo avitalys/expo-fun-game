@@ -8,7 +8,7 @@ export default function App() {
     <View style={styles.container} scrollEnabled={false}>
       <StatusBar style="auto" />
       {/* <EntryScreen/> */}
-      <GameScreen style={{ flex: 1 }} />
+      <GameScreen />
     </View>
   );
 }
