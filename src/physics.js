@@ -1,5 +1,6 @@
 import Matter from 'matter-js';
-import { getPipeSizePosPair, windowWidth } from './utils/random';
+import { getPipeSizePosPair } from './utils/random';
+import Consts from './consts';
 
 const Physics = (entities, { touches, time, dispatch }) => {
   let engine = entities.physics.engine;
@@ -14,12 +15,13 @@ const Physics = (entities, { touches, time, dispatch }) => {
 
   for (let index = 1; index <= 2; index++) {
     if (entities[`ObstacleTop${index}`].body.bounds.max.x <= 50 && !entities[`ObstacleTop${index}`].point) {
+      console.log(entities[`ObstacleTop${index}`]);
       entities[`ObstacleTop${index}`].point = true;
       dispatch({ type: 'point_scored' });
     }
 
     if (entities[`ObstacleTop${index}`].body.bounds.max.x < 0) {
-      const newPipeSizePos = getPipeSizePosPair(windowWidth * 0.9);
+      const newPipeSizePos = getPipeSizePosPair(Consts.SCREEN_WIDTH * 0.9);
 
       entities[`ObstacleTop${index}`].point = false;
       Matter.Body.setPosition(entities[`ObstacleTop${index}`].body, newPipeSizePos.pipeTop.pos);

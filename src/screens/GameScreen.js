@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { GameEngine } from 'react-native-game-engine';
 import entities from '../entities';
 import Physics from '../physics';
+import Consts from '../consts';
 
 export default function () {
   const [running, setRunning] = useState(false);
@@ -16,6 +17,7 @@ export default function () {
 
   return (
     <>
+      {/* <Image source={Images.background} style={styles.backgroundImage} resizeMode="stretch" /> */}
       <GameEngine
         ref={(ref) => {
           setGameEngineRef(ref);
@@ -62,6 +64,15 @@ export default function () {
 }
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    width: Consts.SCREEN_WIDTH,
+    height: Consts.SCREEN_HEIGHT,
+  },
   gameContainer: {
     backgroundColor: 'white',
     position: 'absolute',

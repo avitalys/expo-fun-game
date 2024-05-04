@@ -8,7 +8,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "prettier": "prettier --check '**/**/*.{js,jsx,ts,tsx,css}'",
-    "prettier:fix": "prettier --write '**/**/*.{js,jsx,ts,tsx,css}'"
+    "prettier:fix": "prettier --write '**/**/*.{js,jsx,ts,tsx,css}'",
+    "lint": "eslint"
   },
   "dependencies": {
     "@dotlottie/react-player": "^1.6.19",
@@ -29,7 +30,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "@eslint/js": "^9.1.1",
+    "@eslint/js": "^9.2.0",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.1",
     "globals": "^15.1.0",
