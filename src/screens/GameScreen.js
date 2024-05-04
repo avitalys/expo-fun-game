@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, Pressable, View } from 'react-native';
+import { StyleSheet, Text, Pressable, View, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { GameEngine } from 'react-native-game-engine';
 import entities from '../entities';
 import Physics from '../physics';
 import Consts from '../consts';
+import Assets from '../../assets';
 
 export default function () {
   const [running, setRunning] = useState(false);
@@ -17,7 +18,12 @@ export default function () {
 
   return (
     <>
-      {/* <Image source={Images.background} style={styles.backgroundImage} resizeMode="stretch" /> */}
+      <Image
+        source={Assets.backgroundSky}
+        style={styles.backgroundImage}
+        resizeMode="cover"
+        testID="background-image"
+      />
       <GameEngine
         ref={(ref) => {
           setGameEngineRef(ref);
@@ -74,7 +80,6 @@ const styles = StyleSheet.create({
     height: Consts.SCREEN_HEIGHT,
   },
   gameContainer: {
-    backgroundColor: 'white',
     position: 'absolute',
     top: 0,
     left: 0,

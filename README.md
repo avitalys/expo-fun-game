@@ -68,3 +68,4 @@ Enjoy building and playing with our mobile game project!
 
 - This project was made for the purpose of learning and experiencing with [React Native Game Engine](https://github.com/bberak/react-native-game-engine), and was done by following the [How to Make FLAPPY BIRD with React Native in 1 Hour - Game Development Full Course](https://www.youtube.com/watch?v=zK2xYD4Nytw)
 - This project is provided under the [MIT License](LICENSE). Feel free to use, modify, and distribute the code for your own projects. We welcome contributions and feedback from the community to help make this game even better.
+- Free vector sky background is Designed by "Freepik"

@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import Matter from 'matter-js';
 import { View } from 'react-native';
 import LottieView from 'lottie-react-native';
+import Assets from '../../assets';
 
 const Bird = (props) => {
   const widthBody = props.body.bounds.max.x - props.body.bounds.min.x;
@@ -23,7 +24,7 @@ const Bird = (props) => {
         top: yBody,
       }}
     >
-      <LottieView autoPlay loop ref={animation} source={require('../../assets/lottie/small-bird.json')} />
+      <LottieView autoPlay loop ref={animation} source={Assets.bird} />
     </View>
   );
 };
